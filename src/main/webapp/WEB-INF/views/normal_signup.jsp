@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="css/signup_css.css" />
         <title>일반 사용자 회원가입</title>
     </head>
     <body>
@@ -17,15 +18,15 @@
         <form method ="POST" action ="${pageContext.request.contextPath}/checkId.do">
             <div>
                 <label for="userid">아이디:</label>
-                <input type="text" id="userid" name="userid" required>
+                <input type="text" id="userid" name="userid" required  style="width:auto";>
                 <input type="submit" value="아이디 확인"><br><br>
             </div>
         </form>
         <form method="POST" action="${pageContext.request.contextPath}/nomal_insert.do">
             <label for="password">패스워드:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <input type="password" id="password" name="password" required style="width:auto"><br><br>
             <label for="name">이름:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" required style="width:auto"><br><br>
             <label for="phone">전화번호:</label>
             <input type="tel" id="phone1" name="phone1" maxlength="3" required>
             -
@@ -33,14 +34,14 @@
             -
             <input type="tel" id="phone3" name="phone3" maxlength="4" required> <br><br>
             <label for="birthdate">생년월일:</label>
-            <input type="date" id="birthdate" name="birthdate" required><br><br>
+            <input type="date" id="birthdate" name="birthdate" required style="width:auto"><br><br>
             <label for="address">주소:</label>
             <input type="text" id="city" name="city" placeholder="시" required>
             <input type="text" id="district" name="district" placeholder="구" required>
             <input type="text" id="street" name="street" placeholder="동" required>
             <input type="text" id="detail" name="detail" placeholder="상세주소" required><br><br>
             <label for="major">전공:</label>
-            <input type="text" id="major" name="major" required><br><br>
+            <input type="text" id="major" name="major" required style="width:auto"><br><br>
             <label for="gender">성별:</label>
             <input type="radio" id="gender-male" name="gender" value="남자" required>
             <label for="gender-male">남성</label>

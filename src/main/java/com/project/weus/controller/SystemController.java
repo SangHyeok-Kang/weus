@@ -120,10 +120,10 @@ public class SystemController {
     public String insertUserInfo(@RequestParam String password, @RequestParam String name,
             @RequestParam String phone1, @RequestParam String phone2, @RequestParam String phone3, @RequestParam String birthdate, @RequestParam String school,
             @RequestParam String major, @RequestParam String grade, @RequestParam String status, @RequestParam String interest,
-            @RequestParam String city, @RequestParam String district, @RequestParam String street, @RequestParam String detail, @RequestParam String gender, Model model) 
+            @RequestParam String postcode, @RequestParam String detail, @RequestParam String extra, @RequestParam String address, @RequestParam String gender, Model model) 
     {
         String schoolinfo = "";
-        
+        System.out.println(postcode);
         String userName = env.getProperty("spring.datasource.username");
         String pass = env.getProperty("spring.datasource.password");
         String jdbcDriver = env.getProperty("spring.datasource.driver-class-name");
@@ -138,7 +138,7 @@ public class SystemController {
         AddUserManager manager = new AddUserManager(mysqlServerIp, mysqlServerPort, userName, pass, jdbcDriver);
         result = manager.checkId(userid);
         if (result == true) {
-            manager.addRow(userid, password, name, phone, birthdate, schoolinfo, interest, city, district, street, detail, gender);
+            manager.addRow(userid, password, name, phone, birthdate, schoolinfo, interest, postcode, detail, extra, address, gender);
 
             model.addAttribute("msg", "회원가입 완료되었습니다.");
             model.addAttribute("url", "/");

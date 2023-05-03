@@ -69,7 +69,7 @@ public class AddUserManager {
         return true;
     }
 
-    public void addRow(String userid, String password, String name, String phone, String birthdate, String schoolinfo, String interest, String city, String district, String street, String detail, String gender) {
+    public void addRow(String userid, String password, String name, String phone, String birthdate, String schoolinfo, String interest, String postcode, String detail, String extra, String address, String gender) {
         final String JDBC_URL = String.format("jdbc:mysql://%s:%s/weus?serverTimezone=Asia/Seoul", mysqlServerIp, mysqlServerPort);
 
         log.debug("JDBC_URL = {}", JDBC_URL);
@@ -101,10 +101,10 @@ public class AddUserManager {
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, userid);
-            pstmt.setString(2, city);
-            pstmt.setString(3, district);
-            pstmt.setString(4, street);
-            pstmt.setString(5, detail);
+            pstmt.setString(2, postcode);
+            pstmt.setString(3, address);
+            pstmt.setString(4, detail);
+            pstmt.setString(5, extra);
 
             pstmt.executeUpdate();
             pstmt.close();
