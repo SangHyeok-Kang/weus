@@ -101,11 +101,10 @@ public class SystemController {
         return "/normal_signup";
     }
 
-    @PostMapping("/nomal_insert.do")
-    public String insertNormalUser(@RequestParam String password, @RequestParam String name,
+    @PostMapping("/insert.do")
+    public String insertNormalUser(@RequestParam String password, @RequestParam String com_name, @RequestParam String name,
             @RequestParam String phone1, @RequestParam String phone2, @RequestParam String phone3, @RequestParam String birthdate,
-            @RequestParam String major, @RequestParam String city, @RequestParam String district, @RequestParam String street, @RequestParam String detail,
-            @RequestParam String gender, Model model) {
+            @RequestParam String postcode, @RequestParam String detail, @RequestParam String extra, @RequestParam String address, Model model) {
         String userName = env.getProperty("spring.datasource.username");
         String pass = env.getProperty("spring.datasource.password");
         String jdbcDriver = env.getProperty("spring.datasource.driver-class-name");
@@ -114,7 +113,7 @@ public class SystemController {
         AddUserManager manager = new AddUserManager(mysqlServerIp, mysqlServerPort, userName, pass, jdbcDriver);
         result = manager.checkId(userid);
         if (result == true) {
-            manager.addRow(userid, password, name, phone, birthdate, major, city, district, street, detail, gender);
+            manager.addRow(userid, password, com_name, name, phone, postcode, detail, address, extra);
 
             model.addAttribute("msg", "회원가입 완료되었습니다.");
             model.addAttribute("url", "/");
@@ -125,7 +124,7 @@ public class SystemController {
         return "/signup_result";
     }
 
-    @PostMapping("/insert.do")
+    @PostMapping("/normal_insert.do")
     public String insertUserInfo(@RequestParam String password, @RequestParam String name,
             @RequestParam String phone1, @RequestParam String phone2, @RequestParam String phone3, @RequestParam String birthdate, @RequestParam String school,
             @RequestParam String major, @RequestParam String grade, @RequestParam String status, @RequestParam String interest,

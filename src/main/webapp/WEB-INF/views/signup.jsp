@@ -23,11 +23,11 @@
                     <input type="submit" value="아이디 확인"><br><br>
                 </div>
             </form>
-            <form method="POST" action="${pageContext.request.contextPath}/nomal_insert.do">
+            <form method="POST" action="${pageContext.request.contextPath}/insert.do">
                 <label for="password">패스워드:</label>
                 <input type="password" id="password" name="password" required style="width:auto"><br><br>
-                <label for="name">기업명:</label>
-                <input type="text" id="name" name="name" required style="width:auto"><br><br>
+                <label for="com_name">기업명:</label>
+                <input type="text" id="com_name" name="com_name" required style="width:auto"><br><br>
                 <label for="name">대표자명:</label>
                 <input type="text" id="name" name="name" required style="width:auto"><br><br>
 

@@ -97,7 +97,7 @@ public class AddUserManager {
 
             pstmt.executeUpdate();
             
-            sql = "INSERT INTO useraddress VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO useraddress VALUES(?,?,?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, userid);
@@ -105,6 +105,7 @@ public class AddUserManager {
             pstmt.setString(3, address);
             pstmt.setString(4, detail);
             pstmt.setString(5, extra);
+            pstmt.setInt(6, 0);
 
             pstmt.executeUpdate();
             pstmt.close();
@@ -117,7 +118,7 @@ public class AddUserManager {
         }
     }
 
-    public void addRow(String userid, String password, String name, String phone, String birthdate, String major, String city, String district, String street, String detail, String gender) {
+    public void addRow(String userid, String password, String name, String phone, String com_name, String postcode, String detail, String address, String extra) {
        final String JDBC_URL = String.format("jdbc:mysql://%s:%s/weus?serverTimezone=Asia/Seoul", mysqlServerIp, mysqlServerPort);
 
         log.debug("JDBC_URL = {}", JDBC_URL);
@@ -130,28 +131,26 @@ public class AddUserManager {
             Class.forName(jdbcDriver);
 
             conn = DriverManager.getConnection(JDBC_URL, this.userName, this.pass);
-            String sql = "INSERT INTO userinfo VALUES(?,?,?,?,?,?,DEFAULT,DEFAULT,?,?)";
+            String sql = "INSERT INTO business_info VALUES(?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, userid);
-            pstmt.setString(2, "일반");
-            pstmt.setString(3, password);
+            pstmt.setString(2, password);
+            pstmt.setString(3, com_name);
             pstmt.setString(4, name);
             pstmt.setString(5, phone);
-            pstmt.setString(6, birthdate);
-            pstmt.setString(7, gender);
-            pstmt.setString(8, major);
 
             pstmt.executeUpdate();
             
-            sql = "INSERT INTO useraddress VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO useraddress VALUES(?,?,?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
 
-            pstmt.setString(1, userid);
-            pstmt.setString(2, city);
-            pstmt.setString(3, district);
-            pstmt.setString(4, street);
-            pstmt.setString(5, detail);
+             pstmt.setString(1, userid);
+            pstmt.setString(2, postcode);
+            pstmt.setString(3, address);
+            pstmt.setString(4, detail);
+            pstmt.setString(5, extra);
+            pstmt.setInt(6, 1);
 
             pstmt.executeUpdate();
             pstmt.close();

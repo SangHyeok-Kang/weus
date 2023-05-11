@@ -52,7 +52,7 @@
                     <input type="submit" value="아이디 확인"><br><br>
                 </div>
             </form>
-            <form method="POST" action="${pageContext.request.contextPath}/insert.do">
+            <form method="POST" action="${pageContext.request.contextPath}/normal_insert.do">
                 <label for="password">패스워드:</label>
                 <input type="password" id="password" name="password" required style="width:auto"><br><br>
                 <label for="name">이름:</label>
