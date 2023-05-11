@@ -1,116 +1,136 @@
-/* 전체 요소에 대한 설정 */
+/* signup_css.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
 }
 
-/* 페이지 타이틀에 대한 설정 */
 h1 {
-  margin: 0;
-  padding: 20px;
-  font-size: 32px;
-  text-align: center;
-  background-color: #3f51b5;
-  color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* 폼 요소에 대한 공통 설정 */
-form {
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+.signup {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 라벨에 대한 설정 */
 label {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-/* 인풋 요소에 대한 공통 설정 */
 input[type="text"],
 input[type="password"],
-input[type="tel"],
-input[type="date"],
-input[type="email"],
-input[type="url"] {
-  width: 20%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  font-size: 16px;
-  line-height: 1.5;
-  box-sizing: border-box;
+input[type="date"] {
+    width: calc(100% - 105px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
-
-/* 버튼에 대한 설정 */
+input[type="tel"]{
+    width: 20%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
 input[type="submit"],
 button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-right: 10px;
-  background-color: #3f51b5;
-  border: none;
-  border-radius: 3px;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* 버튼 호버 상태에 대한 설정 */
 input[type="submit"]:hover,
 button:hover {
-  background-color: #283593;
+    background-color: #45a049;
 }
 
-/* 인풋 요소 에러 상태에 대한 설정 */
-input:invalid {
-  border-color: #f44336;
+input[type="radio"] {
+    margin-top: 10px;
+    margin-right: 5px;
 }
 
-/* 인풋 요소 포커스 상태에 대한 설정 */
-input:focus {
-  outline: none;
-  box-shadow: 0 0 5px #3f51b5;
+input[type="button"] {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #4285f4;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* 뒤로 가기 버튼에 대한 설정 */
-button {
-  background-color: #ccc;
-  color: #333;
+input[type="button"]:hover {
+    background-color: #3367d6;
 }
 
-/* 뒤로 가기 버튼 호버 상태에 대한 설정 */
-button:hover {
-  background-color: #ddd;
+#schooltype{
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
-/* 반응형 디자인에 대한 설정 */
-@media (max-width: 767px) {
-  form {
-    padding: 10px;
-  }
-  label {
-    font-size: 16px;
-  }
-  input[type="text"],
-  input[type="password"],
-  input[type="tel"],
-  input[type="date"],
-  input[type="email"],
-  input[type="url"] {
-    font-size: 14px;
-  }
-  input[type="submit"],
-  button {
-    font-size: 16px;
-  }
+#postcode {
+    width: 100px;
+}
+
+#address{
+   width: 30%;
+    position: static;
+    margin-left: 20.9%; 
+}
+#detail{
+    width: 25%;
+    position: static;
+    margin-left: 20.9%;
+}
+#extra{
+    width: 40%;
+    position: static;
+}
+@media (max-width: 480px) {
+    /* Styles for mobile devices */
+    form {
+        padding: 10px;
+    }
+
+    label,
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="button"],
+    input[type="submit"],
+    button {
+        width: 100%;
+    }
+
+    input[type="button"] {
+        margin-top: 0;
+    }
 }
